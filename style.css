@@ -82,7 +82,7 @@ textarea {
 }
 
 button {
-    background-color: #2d6a4f;
+    background-color: #2360da;
     color: white;
     border: none;
     border-radius: 8px;
@@ -122,5 +122,15 @@ button:hover {
 }
 
 .delete-button:hover {
+    opacity: 0.9;
+}
+
+.edit-button {
+    margin-top: 10px;
+    margin-right: 8px;
+    background-color: #01ba5a;
+}
+
+.edit-button:hover {
     opacity: 0.9;
 }

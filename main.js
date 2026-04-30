@@ -1,28 +1,41 @@
 const recipeForm = document.getElementById("recipe-form");
 const recipeList = document.getElementById("recipe-list");
+const titleInput = document.getElementById("title");
+const categoryInput = document.getElementById("category");
+const descriptionInput = document.getElementById("description");
+const submitButton = document.getElementById("button");
 
 const recipes = [];
+let editIndex = null;
 
 recipeForm.addEventListener("submit", function (event) {
     event.preventDefault();
 
-    const title = document.getElementById("title").value;
-    const category = document.getElementById("category").value;
-    const description = document.getElementById("description").value;
-
     const recipe = {
-        title: title,
-        category: category,
-        description: description
+        title: titleInput.value,
+        category: categoryInput.value,
+        description: descriptionInput.value,
     };
 
-    recipes.push(recipe);
+    if (editIndex === null) {
+        recipes.push(recipe);
+    } else {
+        recipes[editIndex] = recipe;
+        editIndex = null;
+        submitButton.textContent = "Spara recept";
+    }
+
     renderRecipes();
     recipeForm.reset();
 });
 
 function renderRecipes() {
     recipeList.innerHTML = "";
+
+    if (recipes.length === 0) {
+        recipeList.textContent = "Inga recept tillagda än.";
+        return;
+    }
 
     recipes.forEach(function (recipe, index) {
         const recipeCard = document.createElement("article");
@@ -37,18 +50,38 @@ function renderRecipes() {
         const recipeDescription = document.createElement("p");
         recipeDescription.textContent = recipe.description;
 
+        const editButton = document.createElement("button");
+        editButton.textContent = "Redigera";
+        editButton.classList.add("edit-button");
+
+        editButton.addEventListener("click", function () {
+            titleInput.value = recipe.title;
+            categoryInput.value = recipe.category;
+            descriptionInput.value = recipe.description;
+
+            editIndex = index;
+            submitButton.textContent = "Uppdatera recept";
+        });
+
         const deleteButton = document.createElement("button");
         deleteButton.textContent = "Ta bort";
         deleteButton.classList.add("delete-button");
 
         deleteButton.addEventListener("click", function () {
             recipes.splice(index, 1);
+
+            if (editIndex === index) {
+                editIndex = null;
+                recipeForm.reset();
+                submitButton.textContent = "Spara recept";
+            }
             renderRecipes();
         });
 
         recipeCard.appendChild(recipeTitle);
         recipeCard.appendChild(recipeCategory);
         recipeCard.appendChild(recipeDescription);
+        recipeCard.appendChild(editButton);
         recipeCard.appendChild(deleteButton);
 
         recipeList.appendChild(recipeCard);
