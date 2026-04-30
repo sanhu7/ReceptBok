@@ -53,6 +53,16 @@ button {
     font: inherit;
 }
 
+input,
+textarea {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+
+textarea {
+    resize: vertical;
+}
+
 button {
     background-color: #2d6a4f;
     color: white;
@@ -61,6 +71,9 @@ button {
     cursor: pointer;
 }
 
+button:hover {
+    opacity: 0.9;
+}
 
 .recipe-list {
     min-height: 120px;
