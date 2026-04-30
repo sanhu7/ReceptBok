@@ -97,3 +97,12 @@ button:hover {
 .recipe-card p {
     margin-bottom: 6px;
 }
+
+.delete-button {
+    margin-top: 10px;
+    background-color: #b00020;
+}
+
+.delete-button:hover {
+    opacity: 0.9;
+}
