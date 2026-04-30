@@ -24,7 +24,7 @@ recipeForm.addEventListener("submit", function (event) {
 function renderRecipes() {
     recipeList.innerHTML = "";
 
-    recipes.forEach(function (recipe) {
+    recipes.forEach(function (recipe, index) {
         const recipeCard = document.createElement("article");
         recipeCard.classList.add("recipe-card");
 
@@ -37,9 +37,19 @@ function renderRecipes() {
         const recipeDescription = document.createElement("p");
         recipeDescription.textContent = recipe.description;
 
+        const deleteButton = document.createElement("button");
+        deleteButton.textContent = "Ta bort";
+        deleteButton.classList.add("delete-button");
+
+        deleteButton.addEventListener("click", function () {
+            recipes.splice(index, 1);
+            renderRecipes();
+        });
+
         recipeCard.appendChild(recipeTitle);
         recipeCard.appendChild(recipeCategory);
         recipeCard.appendChild(recipeDescription);
+        recipeCard.appendChild(deleteButton);
 
         recipeList.appendChild(recipeCard);
     });
