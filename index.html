@@ -14,35 +14,35 @@
             <h1>Välkommen till min receptbok!</h1>
             <p>Här kan du lägga till, redigera och ta bort recept</p>
         </section>
+        <div class="layout">
+            <section class="form-section">
+                <h2>lägg till recept</h2>
 
-        <section class="form-section">
-            <h2>lägg till recept</h2>
+                <form id="recipe-form">
+                    <div class="form-group">
+                        <label for="title">Receptnamn</label>
+                        <input type="text" id="title" name="title">
+                    </div>
 
-            <form id="recipe-form">
-                <div class="form-group">
-                    <label for="title">Receptnamn</label>
-                    <input type="text" id="title" name="title">
-                </div>
+                    <div class="form-group">
+                        <label for="category">Kategori</label>
+                        <input type="text" id="category" name="category">
+                    </div>
 
-                <div class="form-group">
-                    <label for="category">Kategori</label>
-                    <input type="text" id="category" name="category">
-                </div>
+                    <div class="form-group">
+                        <label for="description">Beskrivning</label>
+                        <textarea id="description" name="description" rows="4"></textarea>
+                    </div>
 
-                <div class="form-group">
-                    <label for="description">Beskrivning</label>
-                    <textarea id="description" name="description" rows="4"></textarea>
-                </div>
+                    <button type="submit">Spara recept</button>
+                </form>
+            </section>
 
-                <button type="submit">Spara recept</button>
-            </form>
-        </section>
-
-        <section class="recipes-section">
-            <h2>Mina Recept</h2>
-            <div id="recipe-list" class="recipe-list"></div>
-        </section>
-
+            <section class="recipes-section">
+                <h2>Mina Recept</h2>
+                <div id="recipe-list" class="recipe-list"></div>
+            </section>
+        </div>
     </main>
 
     <script src="main.js"></script>

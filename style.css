@@ -4,6 +4,24 @@
     padding: 0;
 }
 
+.layout {
+    display: block;
+}
+
+@media (min-width: 768px) {
+    .layout {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+        align-items: start;
+    }
+
+    .form-section,
+    .recipes-section {
+        margin-bottom: 0;
+    }
+}
+
 body {
     font-family: Arial, sans-serif;
     background-color: #f6f6f6;
