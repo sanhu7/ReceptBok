@@ -78,6 +78,7 @@ function renderRecipes() {
                 recipeForm.reset();
                 submitButton.textContent = "Spara recept";
             }
+            saveRecipes();
             renderRecipes();
         });
 
