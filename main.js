@@ -5,8 +5,11 @@ const categoryInput = document.getElementById("category");
 const descriptionInput = document.getElementById("description");
 const submitButton = recipeForm.querySelector("button[type='submit']");
 
-const recipes = [];
+let recipes = JSON.parse(localStorage.getItem("recipes")) || [];
 let editIndex = null;
+
+renderRecipes();
+
 
 recipeForm.addEventListener("submit", function (event) {
     event.preventDefault();
@@ -24,7 +27,7 @@ recipeForm.addEventListener("submit", function (event) {
         editIndex = null;
         submitButton.textContent = "Spara recept";
     }
-
+    saveRecipes();
     renderRecipes();
     recipeForm.reset();
 });
@@ -88,3 +91,6 @@ function renderRecipes() {
     });
 }
 
+function saveRecipes() {
+    localStorage.setItem("recipes", JSON.stringify(recipes));
+}
