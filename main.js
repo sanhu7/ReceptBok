@@ -3,7 +3,7 @@ const recipeList = document.getElementById("recipe-list");
 const titleInput = document.getElementById("title");
 const categoryInput = document.getElementById("category");
 const descriptionInput = document.getElementById("description");
-const submitButton = document.getElementById("button");
+const submitButton = recipeForm.querySelector("button[type='submit']");
 
 const recipes = [];
 let editIndex = null;
@@ -45,7 +45,7 @@ function renderRecipes() {
         recipeTitle.textContent = recipe.title;
 
         const recipeCategory = document.createElement("p");
-        recipeCategory.textContent = "Category: " + recipe.category;
+        recipeCategory.textContent = "Kategori: " + recipe.category;
 
         const recipeDescription = document.createElement("p");
         recipeDescription.textContent = recipe.description;
