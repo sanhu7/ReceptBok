@@ -18,6 +18,7 @@ searchInput.addEventListener("input", function () {
             recipe.title.toLowerCase().includes(query) ||
             recipe.category.toLowerCase().includes(query) ||
             recipe.description.toLowerCase().includes(query)
+
         );
     });
     renderRecipes(filtered);
@@ -32,6 +33,8 @@ recipeForm.addEventListener("submit", function (event) {
         title: titleInput.value,
         category: categoryInput.value,
         description: descriptionInput.value,
+        createdAt: editIndex === null ? new Date().toLocaleString("sv-SE")
+            : recipes[editIndex].createdAt,
     };
 
     if (editIndex === null) {
@@ -67,6 +70,13 @@ function renderRecipes(list = recipes) {
         const recipeDescription = document.createElement("p");
         recipeDescription.textContent = recipe.description;
 
+        const recipeDate = document.createElement("p");
+        recipeDate.textContent = recipe.createdAt ? "Skapad: " +
+            recipe.createdAt : "";
+        recipeDate.style.fontSize = "0.8em";
+        recipeDate.style.color = "#999";
+
+
         const editButton = document.createElement("button");
         editButton.textContent = "Redigera";
         editButton.classList.add("edit-button");
@@ -99,6 +109,7 @@ function renderRecipes(list = recipes) {
         recipeCard.appendChild(recipeTitle);
         recipeCard.appendChild(recipeCategory);
         recipeCard.appendChild(recipeDescription);
+        recipeCard.appendChild(recipeDate);
         recipeCard.appendChild(editButton);
         recipeCard.appendChild(deleteButton);
 
