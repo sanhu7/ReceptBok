@@ -32,10 +32,10 @@ Recepten kan kategoriseras som:
 
 ## Projektstruktur
 receptbok/
-- index.html # Sidans struktur
-- main.js # All JavaScript-logik
-- style.css # Stilar och responsivitet
-- README.md # Dokumentation
+- index.html -Sidans struktur
+- main.js -All JavaScript-logik
+- style.css -Stilar och responsivitet
+- README.md -Dokumentation
 
 ## Kom igång
 
