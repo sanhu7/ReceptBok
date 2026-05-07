@@ -169,6 +169,15 @@ button:hover {
     width: 100%;
 }
 
+#search {
+    margin-bottom: 16px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 10px;
+    width: 100%;
+    font: inherit;
+}
+
 @media (max-width: 600px) {
     .recipe-list {
         grid-template-columns: 1fr;
@@ -185,4 +194,11 @@ button:hover {
     .recipe-card p {
         font-size: 0.9rem;
     }
+
+    .edit-button,
+    .delete-button {
+        width: 100%;
+        margin-right: 0;
+    }
+
 }
