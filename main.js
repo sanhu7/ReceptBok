@@ -55,7 +55,7 @@ function renderRecipes(list = recipes) {
     recipeList.innerHTML = "";
 
     if (list.length === 0) {
-        recipeList.textContent = "Inga recept tillagda än.";
+        recipeList.textContent = "Inga recept hittades.";
         return;
     }
 
