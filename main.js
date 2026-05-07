@@ -4,11 +4,25 @@ const titleInput = document.getElementById("title");
 const categoryInput = document.getElementById("category");
 const descriptionInput = document.getElementById("description");
 const submitButton = recipeForm.querySelector("button[type='submit']");
+const searchInput = document.getElementById("search");
 
 let recipes = JSON.parse(localStorage.getItem("recipes")) || [];
 let editIndex = null;
 
 renderRecipes();
+
+searchInput.addEventListener("input", function () {
+    const query = searchInput.value.toLowerCase();
+    const filtered = recipes.filter(function (recipe) {
+        return (
+            recipe.title.toLowerCase().includes(query) ||
+            recipe.category.toLowerCase().includes(query) ||
+            recipe.description.toLowerCase().includes(query)
+        );
+    });
+    renderRecipes(filtered);
+});
+
 
 
 recipeForm.addEventListener("submit", function (event) {
@@ -32,15 +46,15 @@ recipeForm.addEventListener("submit", function (event) {
     recipeForm.reset();
 });
 
-function renderRecipes() {
+function renderRecipes(list = recipes) {
     recipeList.innerHTML = "";
 
-    if (recipes.length === 0) {
+    if (list.length === 0) {
         recipeList.textContent = "Inga recept tillagda än.";
         return;
     }
 
-    recipes.forEach(function (recipe, index) {
+    list.forEach(function (recipe, index) {
         const recipeCard = document.createElement("article");
         recipeCard.classList.add("recipe-card");
 
