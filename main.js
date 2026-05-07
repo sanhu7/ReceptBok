@@ -16,8 +16,7 @@ searchInput.addEventListener("input", function () {
     const filtered = recipes.filter(function (recipe) {
         return (
             recipe.title.toLowerCase().includes(query) ||
-            recipe.category.toLowerCase().includes(query) ||
-            recipe.description.toLowerCase().includes(query)
+            recipe.category.toLowerCase().includes(query)
 
         );
     });
