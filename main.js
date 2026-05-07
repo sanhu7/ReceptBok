@@ -35,7 +35,7 @@ recipeForm.addEventListener("submit", function (event) {
         description: descriptionInput.value,
         createdAt: editIndex === null ? new Date().toLocaleString("sv-SE")
             : recipes[editIndex].createdAt,
-        updateAt: editIndex !== null ? new Date().toLocaleString("sv-SE")
+        updatedAt: editIndex !== null ? new Date().toLocaleString("sv-SE")
             : null,
     };
 
@@ -79,8 +79,8 @@ function renderRecipes(list = recipes) {
         recipeDate.style.color = "#999";
 
         const recipeUpdated = document.createElement("p");
-        recipeUpdated.textContent = recipe.updateAt ? "updaterad: " +
-            recipe.updateAt : "";
+        recipeUpdated.textContent = recipe.updatedAt ? "Uppdaterad: " +
+            recipe.updatedAt : "";
         recipeUpdated.style.fontSize = "0.8em";
         recipeUpdated.style.color = "#bbb";
 
