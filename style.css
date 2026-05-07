@@ -65,6 +65,7 @@ label {
 
 input,
 textarea,
+select,
 button {
     width: 100%;
     padding: 10px;
@@ -72,7 +73,8 @@ button {
 }
 
 input,
-textarea {
+textarea,
+select {
     border: 1px solid #ccc;
     border-radius: 8px;
     background-color: #fff;
